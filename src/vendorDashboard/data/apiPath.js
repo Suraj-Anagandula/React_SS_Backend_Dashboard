@@ -2,3 +2,4 @@
 
 
 const API_URL="https://backend-nodejs-ss.onrender.com"
+export default API_URL;
