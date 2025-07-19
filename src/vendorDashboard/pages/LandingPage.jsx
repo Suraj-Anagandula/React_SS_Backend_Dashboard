@@ -20,18 +20,29 @@ const LandingPage = () => {
 
    useEffect(()=>{
     const loginToken=localStorage.getItem("loginToken");
+     const firmId = localStorage.getItem("firmId");
 
-    if(loginToken){
-      setShowLogOut(true);
+  if (loginToken) {
+    setShowLogOut(true);
 
+    if (!firmId) {
+      // User is logged in but hasn't created a firm
+      setShowFirm(true);
+      setShowWelcome(false);
+      setShowLogin(false);
+      setShowRegister(false);
+      setShowProduct(false);
+      setShowAllProducts(false);
     }
+  }
 
    },[])
 
 
    useEffect(()=>{
     const firmName=localStorage.getItem("firmName");
-    if(firmName){
+    const firmId = localStorage.getItem("firmId");
+    if(firmName!==null && firmId!==null){
       setShowFirmTitle(false);
     }
 
