@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+
 
 const Navbar = ({showLoginHandler,showRegisterHandler,showLogOut,logOutHandler}) => {
  // console.log(showLoginHandler);
   //console.log(showRegisterHandler);
-  const firmName=localStorage.getItem("firmName");
+  const[FirmName,setFirmName]=useState("");
+
+  useEffect(()=>{
+   const firmName=localStorage.getItem("firmName");
+   setFirmName(firmName);
+
+  },[])
+   
 
   return (
      <div className="navSection">
@@ -12,7 +20,7 @@ const Navbar = ({showLoginHandler,showRegisterHandler,showLogOut,logOutHandler})
             Vendor Company
         </div>
         <div className="firmName">
-         <h4> Firm Name:{firmName}</h4>
+         <h4> Firm Name:{FirmName}</h4>
         </div>
         <div className="userAuth">
            {!showLogOut ?  <>  

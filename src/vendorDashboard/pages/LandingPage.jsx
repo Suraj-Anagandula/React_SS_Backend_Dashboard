@@ -20,6 +20,7 @@ const LandingPage = () => {
 
    useEffect(()=>{
     const loginToken=localStorage.getItem("loginToken");
+    
 
     if(loginToken){
       setShowLogOut(true);
