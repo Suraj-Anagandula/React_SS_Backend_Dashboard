@@ -57,6 +57,11 @@ const LandingPage = () => {
   
 
 const showLoginHandler=()=>{
+
+  const Fname=localStorage.getItem("firmName");
+  if(Fname!=null){
+    setShowFirmTitle(true);
+  }
   setShowRegister(false);
    setShowFirm(false);
     setShowProduct(false);
