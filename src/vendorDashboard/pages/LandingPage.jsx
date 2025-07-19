@@ -25,7 +25,7 @@ const LandingPage = () => {
   if (loginToken) {
     setShowLogOut(true);
 
-    if (!firmId) {
+    if (firmId !==null || firmName!==null) {
       // User is logged in but hasn't created a firm
       setShowFirm(true);
       setShowWelcome(false);
