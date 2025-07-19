@@ -18,33 +18,24 @@ const LandingPage = () => {
    const[showLogOut,setShowLogOut]=useState(false);
    const[showFirmTitle,setShowFirmTitle]=useState(true);
 
-   useEffect(() => {
-  const loginToken = localStorage.getItem("loginToken");
-  const firmId = localStorage.getItem("firmId");
-  const firmName = localStorage.getItem("firmName");
+   useEffect(()=>{
+    const loginToken=localStorage.getItem("loginToken");
 
-  if (loginToken) {
-    setShowLogOut(true);
+    if(loginToken){
+      setShowLogOut(true);
 
-    if (!firmId) {
-      // No firmId → user hasn't created a firm yet
-      setShowFirm(true);
-      setShowFirmTitle(true);
-      setShowWelcome(false);
-      setShowLogin(false);
-      setShowRegister(false);
-      setShowProduct(false);
-      setShowAllProducts(false);
-    } else if (firmName !== null) {
-      // Firm is already created
-      setShowFirmTitle(false);
-      setShowWelcome(true);
     }
-  }
-}, []);
+
+   },[])
 
 
-    
+   useEffect(()=>{
+    const firmName=localStorage.getItem("firmName");
+    if(firmName){
+      setShowFirmTitle(true);
+    }
+
+   },[])
 
    const logOutHandler=()=>{
     confirm("Are you sure to logout?");
@@ -57,11 +48,6 @@ const LandingPage = () => {
   
 
 const showLoginHandler=()=>{
-
-  const Fname=localStorage.getItem("firmName");
-  if(Fname!=null){
-    setShowFirmTitle(true);
-  }
   setShowRegister(false);
    setShowFirm(false);
     setShowProduct(false);
